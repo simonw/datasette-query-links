@@ -7,7 +7,7 @@ import urllib.parse
 
 async def is_valid_select(db, sql):
     sql = sql.strip().rstrip(";")
-    outer_sql = "select 1 from ({}) limit 0".format(sql)
+    outer_sql = "explain {}".format(sql)
     try:
         await db.execute(outer_sql)
         return True
