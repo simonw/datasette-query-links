@@ -44,3 +44,10 @@ async def test_query_links(ds, wrap_it, sql, is_link_expected):
         assert a is None
         if wrap_it:
             assert td.text == sql
+
+
+@pytest.mark.asyncio
+async def test_no_xss(ds):
+    sql = "select 'select ''<script>alert(/ohno/)</script>'''"
+    response = await ds.client.get("/d?" + urllib.parse.urlencode({"sql": sql}))
+    assert "<script>alert(/ohno/)</script>" not in response.text

@@ -33,6 +33,10 @@ def render_cell(value, database, datasette):
                         }
                     )
                 )
-                return markupsafe.Markup('<a href="{}">{}</a>'.format(path, value))
+                return markupsafe.Markup(
+                    '<a href="{}">{}</a>'.format(
+                        markupsafe.escape(path), markupsafe.escape(value)
+                    )
+                )
 
     return inner
