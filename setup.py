@@ -28,7 +28,7 @@ setup(
     version=VERSION,
     packages=["datasette_query_links"],
     entry_points={"datasette": ["query_links = datasette_query_links"]},
-    install_requires=["datasette"],
+    install_requires=["datasette>=0.59a1"],
     extras_require={"test": ["pytest", "pytest-asyncio", "beautifulsoup4"]},
     tests_require=["datasette-query-links[test]"],
     python_requires=">=3.6",
