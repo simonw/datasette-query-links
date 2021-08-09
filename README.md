@@ -21,6 +21,10 @@ Any SQL query that returns a value that itself looks like a valid SQL query will
 
 These links will only show for valid SQL query - if a SQL query would return an error it will not be turned into a link.
 
+## Demo
+
+* [Here's an example query](https://latest-with-plugins.datasette.io/fixtures?sql=select%0D%0A++%27select+*+from+%5Bfacetable%5D%27+as+query%0D%0Aunion%0D%0Aselect%0D%0A++%27select+sqlite_version()%27%0D%0Aunion%0D%0Aselect%0D%0A++%27select+this+is+invalid+SQL+so+will+not+be+linked%27) showing the plugin in action.
+
 ## Development
 
 To set up this plugin locally, first checkout the code. Then create a new virtual environment:
